@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @author   Roland Rusch, easy-smart solution GmbH <roland.rusch@easy-smart.ch>
  */
-final class AbstractEnumTest extends TestCase
+final class AbstractEnumTest extends \Ruga\Std\Test\PHPUnit\AbstractTestSetUp
 {
     public function testCanCreateObject(): void
     {
