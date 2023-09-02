@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ruga\Std\Enum;
@@ -59,4 +60,17 @@ interface EnumInterface
     
     
     public function getFull(): string;
+    
+    
+    
+    public function isValue($value): bool;
+    
+    
+    
+    public function is($value): bool;
+    
+    
+    
+    public function isName($name): bool;
+
 }
