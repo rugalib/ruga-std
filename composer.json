@@ -31,8 +31,7 @@
   },
   "extra": {
     "laminas": {
-      "component": "Ruga\\Std",
-      "config-provider": "Ruga\\Std\\ConfigProvider"
+      "component": "Ruga\\Std"
     }
   }
 }
