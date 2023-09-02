@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ruga\Std\Test\Enum;
@@ -8,13 +9,21 @@ namespace Ruga\Std\Test\Enum;
  * An enum of all the weekdays.
  *
  * @method static self MONDAY()
+ * @method bool isMONDAY()
  * @method static self TUESDAY()
+ * @method bool isTUESDAY()
  * @method static self WEDNESDAY()
+ * @method bool isWEDNESDAY()
  * @method static self THURSDAY()
+ * @method bool isTHURSDAY()
  * @method static self FRIDAY()
+ * @method bool isFRIDAY()
  * @method static self SATURDAY()
+ * @method bool isSATURDAY()
  * @method static self SUNDAY()
+ * @method bool isSUNDAY()
  * @method static self UNDEF()
+ * @method bool isUNDEF()
  */
 final class Weekday extends \Ruga\Std\Enum\AbstractEnum
 {
