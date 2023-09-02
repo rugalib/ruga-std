@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ruga\Std\Enum;
@@ -96,6 +97,51 @@ abstract class AbstractEnum implements EnumInterface
             $value = $value->getValue();
         }
         return in_array($value, array_values(static::getConstants()), $strict);
+    }
+    
+    
+    
+    /**
+     * Check, if $value ist the value of the instance.
+     *
+     * @param $value
+     *
+     * @return bool
+     */
+    public function isValue($value): bool
+    {
+        return $this->getValue() == strval($value);
+    }
+    
+    
+    
+    /**
+     * Check, if $value ist the value of the instance.
+     * Alias to isValue().
+     *
+     * @param $value
+     *
+     * @return bool
+     * @see \Ruga\Std\Enum\AbstractEnum::isValue()
+     */
+    public function is($value): bool
+    {
+        return $this->isValue($value);
+    }
+    
+    
+    
+    /**
+     * Check, if $name is the name of the value of the instance.
+     *
+     * @param $name
+     *
+     * @return bool
+     * @throws ReflectionException
+     */
+    public function isName($name): bool
+    {
+        return $this->getName() == strval($name);
     }
     
     
@@ -374,6 +420,18 @@ abstract class AbstractEnum implements EnumInterface
     final private function getInstanceValue()
     {
         return $this->instanceValue;
+    }
+    
+    
+    
+    /**
+     * @throws ReflectionException
+     */
+    public function __call($name, $arguments)
+    {
+        if (substr($name, 0, 2) == 'is') {
+            return $this->isName(substr($name, 2));
+        }
     }
     
     
