@@ -7,6 +7,7 @@ namespace Ruga\Std\Enum;
 use ArrayIterator;
 use ReflectionClass;
 use ReflectionException;
+use Ruga\Std\Enum\Exception\OutOfRangeException;
 use stdClass;
 
 /**
@@ -18,10 +19,10 @@ use stdClass;
 abstract class AbstractEnum implements EnumInterface
 {
     /** @var array Cache for constant name => value pairs */
-    private static $cacheConstVal = [];
+    private static array $cacheConstVal = [];
     
     /** @var array Cache for constant value => full name pairs */
-    private static $cacheValFullname = [];
+    private static array $cacheValFullname = [];
     
     /** @var mixed The value when used as an instance. */
     private $instanceValue;
@@ -34,6 +35,9 @@ abstract class AbstractEnum implements EnumInterface
     
     /** @var string The class to use as template for getObjects() */
     const __objectClass = StdObjectClass::class;
+    
+    /** @var null The default value, if an instance is created without a value */
+    const __default = null;
     
     
     
@@ -346,8 +350,14 @@ abstract class AbstractEnum implements EnumInterface
      *
      * @throws ReflectionException
      */
-    final public function __construct($value)
+    final public function __construct($value = null)
     {
+        if ($value === null) {
+            $value = static::__default;
+            if ($value === null) {
+                throw new OutOfRangeException('No __default value set');
+            }
+        }
         $this->setInstanceValue($value);
     }
     

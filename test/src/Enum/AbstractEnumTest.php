@@ -234,4 +234,13 @@ final class AbstractEnumTest extends \Ruga\Std\Test\PHPUnit\AbstractTestSetUp
         $this->assertTrue($weekday->isWEDNESDAY());
     }
     
+    
+    
+    public function testCanCreateInstanceWithDefault()
+    {
+        $weekday = new Weekday();
+        $this->assertInstanceOf(\Ruga\Std\Test\Enum\Weekday::class, $weekday);
+        $this->assertTrue($weekday->isUNDEF());
+    }
+    
 }
