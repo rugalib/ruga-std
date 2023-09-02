@@ -30,7 +30,7 @@ final class AbstractEnumTest extends \Ruga\Std\Test\PHPUnit\AbstractTestSetUp
         $this->assertInstanceOf(AbstractEnum::class, \Ruga\Std\Test\Enum\Weekday::FOO());
     }
     
-    public function testCanGetContants()
+    public function testCanGetConstants()
     {
         $constants = \Ruga\Std\Test\Enum\Weekday::getConstants();
         print_r($constants);
