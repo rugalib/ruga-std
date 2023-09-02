@@ -412,7 +412,7 @@ abstract class AbstractEnum implements EnumInterface
      *
      * @throws ReflectionException
      */
-    final private function setInstanceValue($value)
+    private function setInstanceValue($value)
     {
         if (is_a($value, self::class)) {
             $value = $value->getValue();
@@ -431,7 +431,7 @@ abstract class AbstractEnum implements EnumInterface
      *
      * @return mixed
      */
-    final private function getInstanceValue()
+    private function getInstanceValue()
     {
         return $this->instanceValue;
     }
